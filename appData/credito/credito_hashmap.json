@@ -34,12 +34,66 @@
             "minute": 0,
             "second": 0
           }
+        },
+        {
+          "concepto": "",
+          "monto": 1000.0,
+          "fecha": "Jan 5, 2005, 12:00:00 AM",
+          "tipo": "Abono",
+          "calendar": {
+            "year": 2005,
+            "month": 0,
+            "dayOfMonth": 5,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "",
+          "monto": 1000.0,
+          "fecha": "Jan 12, 2005, 12:00:00 AM",
+          "tipo": "Retiro",
+          "calendar": {
+            "year": 2005,
+            "month": 0,
+            "dayOfMonth": 12,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
         }
       ],
       "esCorte": false,
       "cortes": [],
       "numBound": 100,
       "saldo": 500.0
+    },
+    {
+      "rfc": "AAE041012941",
+      "identificadorCuenta": "AAE04101294175",
+      "limiteCredito": 1000.0,
+      "interesMensual": 0.1,
+      "porcentajeMinimo": 0.01,
+      "historial": [],
+      "esCorte": false,
+      "cortes": [],
+      "numBound": 100,
+      "saldo": 0.0
+    }
+  ],
+  "PED0410125102": [
+    {
+      "rfc": "PED0410125102",
+      "identificadorCuenta": "PED04101251027",
+      "limiteCredito": 1.0E7,
+      "interesMensual": 0.2,
+      "porcentajeMinimo": 0.1,
+      "historial": [],
+      "esCorte": false,
+      "cortes": [],
+      "numBound": 100,
+      "saldo": 0.0
     }
   ]
 }

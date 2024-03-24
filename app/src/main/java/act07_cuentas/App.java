@@ -290,6 +290,9 @@ public class App {
                 case 5: // Realizar pago
 
                     break;
+                case 6: // imprimir datos de cuenta
+                    ManejadorCredito.imprimirDatosCuenta(cuenta);
+                    break;
                 default:
                     break;
             }
@@ -299,15 +302,15 @@ public class App {
     void registrarMovimientoCredito(Credito cuenta) throws ParseException{
         int opt;
         do {
+
             Menus.subsubsubMenuRegistrarMovimientoCredito();
             opt = Integer.parseInt(in.nextLine());
-
             switch (opt) {
                 case 1: // Abonar
                     ManejadorCredito.abonoCredito(cuenta);
                     break;
                 case 2: // Retirar
-
+                    ManejadorCredito.retiroCredito(cuenta);
                     break;
                 default:
                     break;

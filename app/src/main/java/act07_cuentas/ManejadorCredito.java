@@ -191,30 +191,89 @@ public class ManejadorCredito {
             fechaStr = in.nextLine();
             if(ManejadorClientes.isValidDate(fechaStr)){
                 fechaAbono = sdf.parse(fechaStr);
-                if(!validateDate(fechaAbono)) 
-                    System.out.println("La fecha esta fuera del período actual");
-                else break;
+                if(validateDate(fechaAbono, cuenta))break;
             } else {
                 System.out.println("Fecha inválida");
             }
         } while (true);
 
+        cuenta.setSaldo(saldo - abono);
         cuenta.añadirHistorial(new Movimiento("", abono, fechaAbono, "Abono"));
+        System.out.println("=== OPERACIÓN ÉXITOSA === \n\n");
     }
+    
+    public static void retiroCredito(Credito cuenta) throws ParseException{
+        double saldo = cuenta.getSaldo();
+        
+        if(saldo >= cuenta.getLimiteCredito()){
+            System.out.println("Su saldo superó el crédito disponible");
+            return;
+        }
 
-    public static void retiroCredito(Credito cuenta){
-
+        System.out.println("\n=================================================");
+        System.out.println("El crédito disponible es de: $" + (cuenta.getLimiteCredito() - saldo));
+        System.out.println("=================================================\n\n");
+        
+        double retiro; 
+        do {
+            System.out.println("Ingresa la cantidad a retirar: ");
+            retiro = Double.parseDouble(in.nextLine());
+            
+            if(retiro > (cuenta.getLimiteCredito() - saldo)){
+                System.out.println("No cuentas con esa cantidad de crédito disponible");
+            } else if(retiro <= 0){
+                System.out.println("Cantidad inválida");
+            } else break;
+        } while (true);
+        
+        String fechaStr;
+        Date fechaRetiro;
+        do {
+            System.out.println("Ingresa la fecha de la operación (mm/dd/yyyy): ");
+            fechaStr = in.nextLine();
+            if(ManejadorClientes.isValidDate(fechaStr)){
+                fechaRetiro = sdf.parse(fechaStr);
+                if(validateDate(fechaRetiro, cuenta))break;
+            } else {
+                System.out.println("Fecha inválida");
+            }
+        } while (true);
+        
+        cuenta.setSaldo(saldo + retiro);
+        cuenta.añadirHistorial(new Movimiento("", retiro, fechaRetiro, "Retiro"));
+        System.out.println("=== OPERACIÓN ÉXITOSA === \n\n");
     }
-
-    private static boolean validateDate(Date fechaOperacion){
+    
+    /**
+     * Check if a date is in the actual period, then, it verifies if there is no cut in it
+     * @param fechaOperacion
+     * @param cuenta
+     * @return
+      */
+    private static boolean validateDate(Date fechaOperacion, Credito cuenta){
         Calendar calendarAbono = Calendar.getInstance();
         calendarAbono.setTime(fechaOperacion);
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.setTime(actualDate);
 
-        return ((fechaActual.get(Calendar.YEAR)==calendarAbono.get(Calendar.YEAR))&&
-        (fechaActual.get(Calendar.MONTH)==calendarAbono.get(Calendar.MONTH)));
+        if((fechaActual.get(Calendar.YEAR)==calendarAbono.get(Calendar.YEAR))&&
+        (fechaActual.get(Calendar.MONTH)==calendarAbono.get(Calendar.MONTH))){
+            if(!(cuenta.getEsCorte())){
+                return true;
+            } else {
+                System.out.println("Ya se hizo un corte en esta fecha");
+                return false;
+            }
+        } else {
+            System.out.println("La fecha esta fuera del período actual");
+            return false;
+        }
     }
+
+    /**
+     * Function that prints the entire history of transactions of an account
+     * @param cuenta
+      */
     public static void imprimirHistorialGeneral(Credito cuenta){
         ArrayList<Movimiento> movimientos = cuenta.getHistorial();
 
@@ -234,6 +293,26 @@ public class ManejadorCredito {
         for(Movimiento c : movimientos){
             System.out.println(c.toString());
         }
+    }
+
+    public static void imprimirDatosCuenta(Credito cuenta){
+        System.out.println(cuenta.toString());
+    }
+
+    /**
+     * Function that moves one month ahead, intended to help with the cc cut timeline
+      */
+    public static void moveMonth(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(actualDate);
+
+        if(calendar.get(Calendar.MONTH) == Calendar.DECEMBER){
+            calendar.add(Calendar.YEAR, 1);
+            calendar.set(Calendar.MONTH, Calendar.JANUARY);
+        } else {
+            calendar.add(Calendar.MONTH, 1);
+        }
+        actualDate = calendar.getTime();
     }
 
     // *******************************************************************

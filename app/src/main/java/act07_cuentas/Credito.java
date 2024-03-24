@@ -53,7 +53,7 @@ public class Credito implements Serializable {
         return cortes;
     }
 
-    public boolean esCorte(){
+    public boolean getEsCorte(){
         return esCorte;
     }
 

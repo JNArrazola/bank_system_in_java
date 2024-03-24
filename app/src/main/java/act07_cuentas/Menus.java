@@ -84,10 +84,15 @@ public class Menus {
         System.out.println("3) Consultar corte");
         System.out.println("4) Consultar detalles de corte");
         System.out.println("5) Realizar pago");
+        System.out.println("6) Imprimir datos cuenta");
         System.out.println("0) Salir");
     }
 
     public static void subsubsubMenuRegistrarMovimientoCredito(){
+        System.out.println("===================================");
+        System.out.println(ManejadorCredito.getActualDate());
+        System.out.println("===================================");
+
         System.out.println("¿Qué movimiento deseas hacer?");
         System.out.println("1) Abono");
         System.out.println("2) Retiro");
