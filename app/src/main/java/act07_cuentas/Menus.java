@@ -5,6 +5,7 @@ public class Menus {
         System.out.println("¿Qué deseas hacer?");
         System.out.println("1) Gestionar clientes");
         System.out.println("2) Gestionar cuentas");
+        System.out.println("3) Realizar corte de tarjetas de crédito");
         System.out.println("0) Salir");
     }
 
@@ -40,7 +41,6 @@ public class Menus {
         System.out.println("¿Qué cuenta deseas gestionar?");
         System.out.println("1) Débito");
         System.out.println("2) Crédito");
-        System.out.println("3) Realizar corte de tarjetas de crédito");
         System.out.println("0) Salir");
     }
 

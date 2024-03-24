@@ -69,7 +69,48 @@ public class ManejadorCredito {
         cuentasCredito.get(rfc).add(new Credito(rfc, limiteCredito, interesMensual, porcentajeMinimo));
     }
 
-    // TODO: Cancelar cuenta
+    /**
+     * Function that looks for an specific account of a user
+     * @param rfc
+     * @param identificadorCuenta
+     * @return
+      */
+    public static Credito obtenerCuentaEspecifica(String rfc, String identificadorCuenta){
+        if(!cuentasCredito.containsKey(rfc))
+            return null;
+        
+        ArrayList<Credito> tarjetas = obtenerCuentas(rfc);
+
+        for(Credito d : tarjetas)
+            if(d.getIdentificadorCuenta().equals(identificadorCuenta))
+                return d;
+        return null;
+    }
+
+    /**
+     * Function that deletes an account from the hashmap
+     * @param rfc
+     * @param identificadorCuenta
+      */
+    public static void cancelarCuenta(String rfc){
+        System.out.println("Ingresa el identificador de la cuenta: ");
+        String identificadorCuenta = in.nextLine();
+
+        Credito cuenta = obtenerCuentaEspecifica(rfc, identificadorCuenta);
+
+        if(cuenta == null){
+            System.out.println("No se encontró la cuenta\n");
+            return;
+        }
+
+        if(cuenta.getSaldo()!=0){
+            System.out.println("OPERACIÓN FALLIDA: La cuenta tiene un saldo distinto de cero (saldo : $"+ cuenta.getSaldo() +" )");
+            return;
+        }
+
+        cuentasCredito.get(rfc).remove(cuenta);
+        System.out.println("OPERACIÓN ÉXITOSA: Cuenta eliminada con éxito");
+    }
     // TODO: clienteTieneCuentas
     
     // Function that verifies if an identifier is already in use

@@ -31,6 +31,9 @@ public class App {
                 case 2: // Gestionar cuentas
                     gestionarCuentas();
                     break;
+                case 3: // Realizar corte de tarjetas de crédito
+                    
+                    break;
                 default:
                     break;
             }
@@ -122,8 +125,6 @@ public class App {
                 case 2: // Gestionar cuentas crédito
                     gestionarCuentasCredito(rfc);
                     break;
-                case 3: // Realizar corte
-                    // TODO: Realizar corte tarjetas
                 default:
                     break;
             }
@@ -246,7 +247,7 @@ public class App {
                     ManejadorCredito.listarTarjetasCredito(rfc);
                     break;
                 case 4: // Cancelar cuenta de crédito
-
+                    ManejadorCredito.cancelarCuenta(rfc);
                     break;
                 default:
                     break;

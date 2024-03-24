@@ -2,10 +2,10 @@
   "AAE041012941": [
     {
       "rfc": "AAE041012941",
-      "identificadorCuenta": "AAE0410129414",
-      "limiteCredito": 1000.0,
-      "interesMensual": 0.25,
-      "porcentajeMinimo": 0.1,
+      "identificadorCuenta": "AAE04101294138",
+      "limiteCredito": 10000.0,
+      "interesMensual": 0.2,
+      "porcentajeMinimo": 0.15,
       "historial": [],
       "esCorte": false,
       "cortes": [],
