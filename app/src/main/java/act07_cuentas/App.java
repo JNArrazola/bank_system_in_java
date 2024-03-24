@@ -226,7 +226,7 @@ public class App {
         } while (opt!=0);
     }
     
-    void gestionarCuentasCredito(String rfc){
+    void gestionarCuentasCredito(String rfc) throws ParseException{
         int opt;
         
         System.out.println("=======================================");
@@ -241,13 +241,93 @@ public class App {
                     ManejadorCredito.crearCuentaCredito(rfc);
                     break;
                 case 2: // Ingresar a una cuenta
-
+                    System.out.println("Ingresa el identificador de la cuenta a ingresar: ");
+                    String id = in.nextLine();
+                    ingresarACuenta(rfc, id);
                     break;
                 case 3: // Listar cuentas de crédito
                     ManejadorCredito.listarTarjetasCredito(rfc);
                     break;
                 case 4: // Cancelar cuenta de crédito
                     ManejadorCredito.cancelarCuenta(rfc);
+                    break;
+                default:
+                    break;
+            }
+        } while (opt!=0);
+    }
+
+    void ingresarACuenta(String rfc, String identificador) throws ParseException{
+        Credito cuenta = ManejadorCredito.obtenerCuentaEspecifica(rfc, identificador);
+        if(cuenta == null){
+            System.out.println("OPERACIÓN FALLIDA: No se encontró la cuenta\n");
+            return;
+        }
+
+        System.out.println("===================================");
+        System.out.println("¡Bienvenido al sistema!");
+        System.out.println(ManejadorCredito.getActualDate());
+        System.out.println("===================================");
+        
+        int opt;
+        do {
+            Menus.subsubMenuIngresarCuenta();
+            opt = Integer.parseInt(in.nextLine());
+
+            switch (opt) {
+                case 1: // Registrar movimiento
+                    registrarMovimientoCredito(cuenta);
+                    break;
+                case 2: // Consultar movimientos 
+                    consultarMovimientosCredito(cuenta);
+                    break;
+                case 3: // Consultar corte
+
+                    break;
+                case 4: // Consultar detalles del corte
+
+                    break;
+                case 5: // Realizar pago
+
+                    break;
+                default:
+                    break;
+            }
+        } while (opt!=0);
+    }
+
+    void registrarMovimientoCredito(Credito cuenta) throws ParseException{
+        int opt;
+        do {
+            Menus.subsubsubMenuRegistrarMovimientoCredito();
+            opt = Integer.parseInt(in.nextLine());
+
+            switch (opt) {
+                case 1: // Abonar
+                    ManejadorCredito.abonoCredito(cuenta);
+                    break;
+                case 2: // Retirar
+
+                    break;
+                default:
+                    break;
+            }
+        } while (opt!=0);
+    }
+
+    void consultarMovimientosCredito(Credito cuenta){
+        int opt;
+
+        do {
+            Menus.subsubsubMenuListar();
+            opt = Integer.parseInt(in.nextLine());
+
+            switch (opt) {
+                case 1: // Listar general/todos
+                    ManejadorCredito.imprimirHistorialGeneral(cuenta);
+                    break;
+                case 2: // Listar por año-mes
+
                     break;
                 default:
                     break;

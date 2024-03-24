@@ -86,4 +86,18 @@ public class Menus {
         System.out.println("5) Realizar pago");
         System.out.println("0) Salir");
     }
+
+    public static void subsubsubMenuRegistrarMovimientoCredito(){
+        System.out.println("¿Qué movimiento deseas hacer?");
+        System.out.println("1) Abono");
+        System.out.println("2) Retiro");
+        System.out.println("0) Salir");
+    }
+
+    public static void subsubsubMenuListar(){
+        System.out.println("¿Cómo deseas listar?");
+        System.out.println("1) General");
+        System.out.println("2) Por año-mes");
+        System.out.println("0) Salir");
+    }
 }

@@ -6,8 +6,6 @@ import java.util.*;
 public class Movimiento implements Serializable {
     private String concepto;
     private double monto;
-
-    @SuppressWarnings("unused")
     private Date fecha;
     private String tipo;
 
@@ -78,8 +76,8 @@ public class Movimiento implements Serializable {
         return calendar.get(Calendar.YEAR);
     }
     
-    private String obtenerMes(){
-        switch (getMonth()) {
+    public static String obtenerMes(int month){
+        switch (month) {
             case 0:
                 return "Jan";
             case 1:
@@ -112,9 +110,9 @@ public class Movimiento implements Serializable {
     @Override
     public String toString() {
         return "Movimiento {" + 
-            "\n\tConcepto: '" + getConcepto() + "'" +
+            ((!getConcepto().equals("")) ? ("\n\tConcepto: '" + getConcepto() + "'") : "" )+
             "\n\tMonto: $" + getMonto() +
-            "\n\tFecha: " + obtenerMes() + "-" + getDay() + "-" + getYear() +
+            "\n\tFecha: " + obtenerMes(getMonth()) + "-" + getDay() + "-" + getYear() +
             "\n\tTipo: " + getTipo() +
         "\n}";
     }

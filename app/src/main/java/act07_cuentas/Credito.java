@@ -66,6 +66,10 @@ public class Credito implements Serializable {
         this.esCorte = esCorte;
     }
 
+    ArrayList<Movimiento> getHistorial(){
+        return this.historial;
+    }
+
     // Functions
     private String generarRandom(String rfc){
         Random r = new Random();

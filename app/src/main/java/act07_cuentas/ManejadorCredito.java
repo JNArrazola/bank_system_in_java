@@ -7,6 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ManejadorCredito {
     private static final Scanner in = new Scanner(System.in);
@@ -14,7 +16,7 @@ public class ManejadorCredito {
     private static final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     private static Date actualDate = FileManagement.deserializeDate();
 
-    // Obtain all the credit accounts of a client
+    // Obtains all the credit accounts of a client
     public static ArrayList<Credito> obtenerCuentas(String rfc) {
         if(cuentasCredito.containsKey(rfc)){
             return cuentasCredito.get(rfc);
@@ -23,6 +25,7 @@ public class ManejadorCredito {
         }
     }
 
+    // Verify if there is a date registered in the system
     public static void verificarDate() throws ParseException {
         if(actualDate != null) return;
         
@@ -39,6 +42,10 @@ public class ManejadorCredito {
         } while (true);
     }
 
+    /**
+     * Function to register a new credit card in the system
+     * @param rfc
+      */
     public static void crearCuentaCredito(String rfc){
         System.out.println("Ingresa el límite de crédito de la tarjeta: ");
         double limiteCredito = Double.parseDouble(in.nextLine());
@@ -90,7 +97,6 @@ public class ManejadorCredito {
     /**
      * Function that deletes an account from the hashmap
      * @param rfc
-     * @param identificadorCuenta
       */
     public static void cancelarCuenta(String rfc){
         System.out.println("Ingresa el identificador de la cuenta: ");
@@ -111,7 +117,20 @@ public class ManejadorCredito {
         cuentasCredito.get(rfc).remove(cuenta);
         System.out.println("OPERACIÓN ÉXITOSA: Cuenta eliminada con éxito");
     }
-    // TODO: clienteTieneCuentas
+    
+
+    /**
+     * Boolean function that returns true if the array of accounts of a certain user is empty
+     * The purpose of this function is being called by the ManejadorClientes class to verify if 
+     * we can delete a client
+     * 
+     * REMINDER: We can remove a client if and only if he doesnt have any active account
+     * @param rfc
+     * @return boolean
+      */
+    public static boolean tieneCuentas(String rfc){
+        return cuentasCredito.get(rfc).isEmpty();
+    }
     
     // Function that verifies if an identifier is already in use
     public static boolean verificarIdentificador(String rfc, int num){
@@ -140,7 +159,86 @@ public class ManejadorCredito {
             System.out.println(d.toString());
     }
 
+    /**
+     * Function to payments to a certain cc
+     * @param cuenta
+     * @throws ParseException
+     */
+    public static void abonoCredito(Credito cuenta) throws ParseException{
+        double saldo = cuenta.getSaldo();
+
+        if(saldo == 0){
+            System.out.println("La cuenta no tiene saldo pendiente");
+            return;
+        }
+
+        double abono;
+        do {
+            System.out.println("Ingresa la cantidad a abonar: ");
+            abono = Double.parseDouble(in.nextLine());
+
+            if(abono>saldo){
+                System.out.println("No puedes abonar más que el saldo pendiente");
+            } else if(abono <= 0){
+                System.out.println("Cantidad inválida");
+            } else break;
+        } while (true);
+
+        String fechaStr;
+        Date fechaAbono;
+        do {
+            System.out.println("Ingresa la fecha de la operación (mm/dd/yyyy): ");
+            fechaStr = in.nextLine();
+            if(ManejadorClientes.isValidDate(fechaStr)){
+                fechaAbono = sdf.parse(fechaStr);
+                if(!validateDate(fechaAbono)) 
+                    System.out.println("La fecha esta fuera del período actual");
+                else break;
+            } else {
+                System.out.println("Fecha inválida");
+            }
+        } while (true);
+
+        cuenta.añadirHistorial(new Movimiento("", abono, fechaAbono, "Abono"));
+    }
+
+    public static void retiroCredito(Credito cuenta){
+
+    }
+
+    private static boolean validateDate(Date fechaOperacion){
+        Calendar calendarAbono = Calendar.getInstance();
+        calendarAbono.setTime(fechaOperacion);
+        Calendar fechaActual = Calendar.getInstance();
+        fechaActual.setTime(actualDate);
+
+        return ((fechaActual.get(Calendar.YEAR)==calendarAbono.get(Calendar.YEAR))&&
+        (fechaActual.get(Calendar.MONTH)==calendarAbono.get(Calendar.MONTH)));
+    }
+    public static void imprimirHistorialGeneral(Credito cuenta){
+        ArrayList<Movimiento> movimientos = cuenta.getHistorial();
+
+        if(movimientos.isEmpty()){
+            System.out.print("No hay movimientos registrados\n");
+            return;
+        }
+
+        Collections.sort(movimientos, new Comparator<Movimiento>() {
+        
+            @Override
+            public int compare(Movimiento o1, Movimiento o2) {
+                return o1.getFecha().compareTo(o2.getFecha());
+            }
+        });
+
+        for(Movimiento c : movimientos){
+            System.out.println(c.toString());
+        }
+    }
+
+    // *******************************************************************
     // UTILITIES
+    // *******************************************************************
     public static int getActualYear(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(actualDate);
@@ -156,5 +254,12 @@ public class ManejadorCredito {
     public static void save(){
         FileManagement.serializeDate(actualDate);
         FileManagement.serializarCuentasCredito(cuentasCredito);
+    }
+
+    public static String getActualDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(actualDate);
+
+        return "Período actual: " + Movimiento.obtenerMes(calendar.get(Calendar.MONTH)) + "-" + calendar.get(Calendar.YEAR);
     }
 }

@@ -113,6 +113,8 @@ public class ManejadorDebito {
         System.out.println("Ingresa el concepto del depósito: ");
         String concepto = in.nextLine();
         
+        if(concepto=="") concepto = "Sin concepto";
+
         System.out.println("Ingresa la cantidad a depositar: ");
         double cantidad;
         

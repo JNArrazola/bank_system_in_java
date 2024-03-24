@@ -38,10 +38,10 @@ public class Corte implements Serializable {
     public String imprimirCorte(double porcentajeMinimo) {
         return "Corte { " +
         "\n\tFecha corte: " + fechaCorte + 
-        "\n\tPago minimo: " + cantidadTotal * porcentajeMinimo + 
-        "\n\tPago para no generar intereses: " + cantidadTotal + 
-        "\n\tPago realizado" + pagoRealizado +
+        "\n\tPago realizado: $" + pagoRealizado +
+        "\n\tPago minimo: $" + cantidadTotal * porcentajeMinimo + 
+        "\n\tPago para no generar intereses: $" + cantidadTotal + 
         "\n\tEstado: " + ((pagoRealizado != 0) ? "Pagado" : "No pagado") + 
-        "}";
+        "\n}";
     }
 }

@@ -6,11 +6,40 @@
       "limiteCredito": 10000.0,
       "interesMensual": 0.2,
       "porcentajeMinimo": 0.15,
-      "historial": [],
+      "historial": [
+        {
+          "concepto": "",
+          "monto": 500.0,
+          "fecha": "Oct 9, 2004, 12:00:00 AM",
+          "tipo": "Abono",
+          "calendar": {
+            "year": 2004,
+            "month": 9,
+            "dayOfMonth": 9,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "",
+          "monto": 500.0,
+          "fecha": "Oct 12, 2004, 12:00:00 AM",
+          "tipo": "Abono",
+          "calendar": {
+            "year": 2004,
+            "month": 9,
+            "dayOfMonth": 12,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        }
+      ],
       "esCorte": false,
       "cortes": [],
       "numBound": 100,
-      "saldo": 0.0
+      "saldo": 500.0
     }
   ]
 }
