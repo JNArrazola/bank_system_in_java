@@ -96,7 +96,7 @@ public class FileManagement {
     public static void serializarCuentasCredito(HashMap<String, ArrayList<Credito>> hashMap) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        try (FileWriter fw = new FileWriter(cuentasDebitoPath + "/credito_hashmap.json")) {
+        try (FileWriter fw = new FileWriter(cuentasCreditoPath + "/credito_hashmap.json")) {
             gson.toJson(hashMap, fw);
         } catch (IOException e) {
             e.printStackTrace();
@@ -104,7 +104,7 @@ public class FileManagement {
     }
 
     public static HashMap<String, ArrayList<Credito>> deserializarCuentasCredito() {
-        File file = new File(cuentasDebitoPath + "/credito_hashmap.json");
+        File file = new File(cuentasCreditoPath + "/credito_hashmap.json");
         if (!file.exists()) {
             return new HashMap<>();
         }

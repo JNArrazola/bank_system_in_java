@@ -11,17 +11,18 @@ public class Credito implements Serializable {
     private final double interesMensual;
     private final double porcentajeMinimo;
     private ArrayList<Movimiento> historial = new ArrayList<>();
+    private boolean esCorte;
     private ArrayList<Corte> cortes = new ArrayList<>();
     private final int numBound = 100;
-    private double saldo;
+    private double saldo = 0;
 
-    Credito(String rfc, double limiteCredito, double interesMensual, double porcentajeMinimo, double saldo) {
+    Credito(String rfc, double limiteCredito, double interesMensual, double porcentajeMinimo) {
         this.rfc = rfc;
         this.limiteCredito = limiteCredito;
         this.interesMensual = interesMensual;
         this.porcentajeMinimo = porcentajeMinimo;
-        this.saldo = saldo;
         this.identificadorCuenta = generarRandom(rfc);
+        esCorte = false;
     }
 
     public double getInteresMensual() {
@@ -48,9 +49,21 @@ public class Credito implements Serializable {
         return identificadorCuenta;
     }
 
+    public ArrayList<Corte> getCortes() {
+        return cortes;
+    }
+
+    public boolean esCorte(){
+        return esCorte;
+    }
+
     // Setters
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public void setEsCorte(boolean esCorte) {
+        this.esCorte = esCorte;
     }
 
     // Functions
@@ -72,5 +85,17 @@ public class Credito implements Serializable {
 
     public void añadirCorte(Corte c){
         cortes.add(c);
+    }
+
+    @Override
+    public String toString() {
+        return "Crédito {" + 
+        "\n\tIdentificador: " + identificadorCuenta + 
+        "\n\tRFC: " + rfc + 
+        "\n\tSaldo: $" + saldo + 
+        "\n\tLímite de crédito: $" + limiteCredito + 
+        "\n\tPorcentaje mínimo de pago: %" + porcentajeMinimo + 
+        "\n\tPorcentaje de interés mensual: %" + interesMensual + 
+        "\n}";
     }
 }

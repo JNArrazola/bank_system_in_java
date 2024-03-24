@@ -120,7 +120,7 @@ public class App {
                     gestionarCuentasDebito(rfc);
                     break;
                 case 2: // Gestionar cuentas crédito
-                    // TODO: Gestionar cuentas de crédito
+                    gestionarCuentasCredito(rfc);
                     break;
                 case 3: // Realizar corte
                     // TODO: Realizar corte tarjetas
@@ -237,13 +237,13 @@ public class App {
             opt = Integer.parseInt(in.nextLine());
             switch (opt) {
                 case 1: // Crear cuenta de crédito
-                    
+                    ManejadorCredito.crearCuentaCredito(rfc);
                     break;
                 case 2: // Ingresar a una cuenta
 
                     break;
                 case 3: // Listar cuentas de crédito
-
+                    ManejadorCredito.listarTarjetasCredito(rfc);
                     break;
                 case 4: // Cancelar cuenta de crédito
 
