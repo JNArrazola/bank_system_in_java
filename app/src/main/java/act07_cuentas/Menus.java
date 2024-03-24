@@ -40,6 +40,7 @@ public class Menus {
         System.out.println("¿Qué cuenta deseas gestionar?");
         System.out.println("1) Débito");
         System.out.println("2) Crédito");
+        System.out.println("3) Realizar corte de tarjetas de crédito");
         System.out.println("0) Salir");
     }
 
@@ -64,6 +65,25 @@ public class Menus {
         System.out.println("¿Cómo deseas listar?");
         System.out.println("1) Por año-mes");
         System.out.println("2) Listar todos");
+        System.out.println("0) Salir");
+    }
+
+    public static void subMenuGestionarCuentasCredito(){
+        System.out.println("¿Qué deseas hacer?");
+        System.out.println("1) Crear una cuenta de crédito");
+        System.out.println("2) Ingresar a una cuenta");
+        System.out.println("3) Listar cuentas de crédito");
+        System.out.println("4) Cancelar cuenta");
+        System.out.println("0) Salir");
+    }
+
+    public static void subsubMenuIngresarCuenta(){
+        System.out.println("¿Qué deseas hacer?");
+        System.out.println("1) Registrar movimiento");
+        System.out.println("2) Consultar movimientos");
+        System.out.println("3) Consultar corte");
+        System.out.println("4) Consultar detalles de corte");
+        System.out.println("5) Realizar pago");
         System.out.println("0) Salir");
     }
 }

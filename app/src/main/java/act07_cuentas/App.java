@@ -17,6 +17,7 @@ public class App {
 
     void run() throws Exception{
         FileManagement.verificacionInicial();
+        ManejadorCredito.verificarDate();
 
         System.out.println("=== Bienvenido al sistema bancario ===");
         int opt;
@@ -37,6 +38,7 @@ public class App {
 
         ManejadorClientes.save();
         ManejadorDebito.save();
+        ManejadorCredito.save();
     }
 
     void gestionarClientes() throws ParseException{
@@ -120,6 +122,8 @@ public class App {
                 case 2: // Gestionar cuentas crédito
                     // TODO: Gestionar cuentas de crédito
                     break;
+                case 3: // Realizar corte
+                    // TODO: Realizar corte tarjetas
                 default:
                     break;
             }
@@ -215,6 +219,35 @@ public class App {
                     break;
                 case 2: // Listar en general
                     ManejadorDebito.listarGeneral(cuenta);
+                default:
+                    break;
+            }
+        } while (opt!=0);
+    }
+    
+    void gestionarCuentasCredito(String rfc){
+        int opt;
+        
+        System.out.println("=======================================");
+        System.out.println("Usted ingreso al usuario: " + rfc);
+        System.out.println("=======================================");
+
+        do {
+            Menus.subMenuGestionarCuentasCredito();
+            opt = Integer.parseInt(in.nextLine());
+            switch (opt) {
+                case 1: // Crear cuenta de crédito
+                    
+                    break;
+                case 2: // Ingresar a una cuenta
+
+                    break;
+                case 3: // Listar cuentas de crédito
+
+                    break;
+                case 4: // Cancelar cuenta de crédito
+
+                    break;
                 default:
                     break;
             }

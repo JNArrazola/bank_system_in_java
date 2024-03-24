@@ -1,5 +1,6 @@
 package act07_cuentas;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -7,6 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Date;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -121,6 +123,40 @@ public class FileManagement {
         } catch (IOException e) {
             e.printStackTrace();
             return new HashMap<>();
+        }
+    }
+
+    /**
+     * Function to serialize actual Date for credit cards
+     * @param date
+     * @author Joshua
+      */
+    public static void serializeDate(Date date) {
+        Gson gson = new GsonBuilder().setDateFormat("MM/dd/yyyy").create();
+        
+        try (FileWriter writer = new FileWriter(appPath + "date.json")) {
+            gson.toJson(date, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Date deserializeDate() {
+        if(!(new File(appPath + "date.json").exists())){
+            return null;
+        }
+        
+        Gson gson = new GsonBuilder().setDateFormat("MM/dd/yyyy").create();
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(appPath + "date.json"))) {
+            String json = br.readLine(); 
+            if (json == null || json.isEmpty()) {
+                return null; 
+            }
+            return gson.fromJson(json, Date.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null; 
         }
     }
 }

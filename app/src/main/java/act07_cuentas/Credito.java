@@ -10,10 +10,10 @@ public class Credito implements Serializable {
     private final double limiteCredito;
     private final double interesMensual;
     private final double porcentajeMinimo;
-    private double saldo;
     private ArrayList<Movimiento> historial = new ArrayList<>();
     private ArrayList<Corte> cortes = new ArrayList<>();
     private final int numBound = 100;
+    private double saldo;
 
     Credito(String rfc, double limiteCredito, double interesMensual, double porcentajeMinimo, double saldo) {
         this.rfc = rfc;
@@ -64,5 +64,13 @@ public class Credito implements Serializable {
         } while (true);
 
         return rfc + numero;
+    }
+
+    public void añadirHistorial(Movimiento m){
+        historial.add(m);   
+    }
+
+    public void añadirCorte(Corte c){
+        cortes.add(c);
     }
 }

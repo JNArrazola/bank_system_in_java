@@ -6,10 +6,7 @@ import java.sql.Date;
 public class Corte implements Serializable {
     private final Date fechaCorte;
     private final double cantidadTotal;
-    private final String estado;
-
-    // TODO: pago minimo es calculado
-
+    private final double pagoRealizado;
     /**
      * La idea acá es que al momento de pagarse se registre el corte, y en 
      * 'estado' se coloque si se pago o se omitió el pago
@@ -19,10 +16,10 @@ public class Corte implements Serializable {
      * 
      * @author Joshua
       */
-    Corte(Date fechaCorte, double cantidadTotal, String estado){
+    Corte(Date fechaCorte, double cantidadTotal, double pagoRealizado){
         this.fechaCorte = fechaCorte;
         this.cantidadTotal = cantidadTotal;
-        this.estado = estado;
+        this.pagoRealizado = pagoRealizado;
     }
 
     public double getCantidadTotal() {
@@ -33,7 +30,18 @@ public class Corte implements Serializable {
         return fechaCorte;
     }
 
-    public String getEstado() {
-        return estado;
+    /**
+     * Función que imprime el corte, y si se pagó o no
+     * @param porcentajeMinimo
+     * @return
+      */
+    public String imprimirCorte(double porcentajeMinimo) {
+        return "Corte { " +
+        "\n\tFecha corte: " + fechaCorte + 
+        "\n\tPago minimo: " + cantidadTotal * porcentajeMinimo + 
+        "\n\tPago para no generar intereses: " + cantidadTotal + 
+        "\n\tPago realizado" + pagoRealizado +
+        "\n\tEstado: " + ((pagoRealizado != 0) ? "Pagado" : "No pagado") + 
+        "}";
     }
 }
