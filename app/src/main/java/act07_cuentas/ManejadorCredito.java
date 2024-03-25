@@ -315,6 +315,26 @@ public class ManejadorCredito {
         actualDate = calendar.getTime();
     }
 
+    public static boolean verificarFechaPagoCorte(Date fechaPago){
+        // Fecha actual
+        Calendar fechaAnterior = Calendar.getInstance();
+        fechaAnterior.setTime(actualDate);
+
+        if(fechaAnterior.get(Calendar.MONTH) == Calendar.JANUARY){
+            fechaAnterior.add(Calendar.YEAR, -1);
+            fechaAnterior.set(Calendar.MONTH, Calendar.DECEMBER);
+        } else {
+            fechaAnterior.add(Calendar.MONTH, -1);
+        }
+
+        // Fecha de pago
+        Calendar calendarFechaPago = Calendar.getInstance();
+        calendarFechaPago.setTime(fechaPago);
+
+
+        return true;
+    }
+
     // *******************************************************************
     // UTILITIES
     // *******************************************************************

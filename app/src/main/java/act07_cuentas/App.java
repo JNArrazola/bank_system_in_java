@@ -134,8 +134,6 @@ public class App {
 
     void gestionarCuentasDebito(String rfc) throws Exception {
         int opt;
-        // limpiar pantalla
-        // System.out.println("\033[H\033[2J");
         System.out.println("=======================================");
         System.out.println("Usted ingreso al usuario: " + rfc);
         System.out.println("=======================================");
