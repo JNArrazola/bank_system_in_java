@@ -339,7 +339,11 @@ public class ManejadorCredito {
         });
 
         for (Corte c : cuenta.getCortes()) {
-            System.out.println(c.toString());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(c.getFechaCorte());
+            if (calendar.get(Calendar.YEAR) == anio && calendar.get(Calendar.MONTH) == mes) {
+                System.out.println(c.imprimirCorte(cuenta.getPorcentajeMinimo()));
+            }
         }
     }
 
