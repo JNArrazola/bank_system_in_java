@@ -5,9 +5,7 @@ import java.util.*;
 
 public class App {
     private final Scanner in = new Scanner(System.in);
-    // test in branch
-    // test 2
-    // test 3
+    // this is a test
     public static void main(String[] args) throws ParseException {
         App app = new App();
         try {
