@@ -1,7 +1,7 @@
 package act07_cuentas;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.*;
 
 public class Corte implements Serializable {
     private final Date fechaCorte;

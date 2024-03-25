@@ -32,7 +32,7 @@ public class App {
                     gestionarCuentas();
                     break;
                 case 3: // Realizar corte de tarjetas de crédito
-                    
+                    ManejadorCredito.realizarCorte();
                     break;
                 default:
                     break;
@@ -76,17 +76,20 @@ public class App {
             opt = Integer.parseInt(in.nextLine());
             switch (opt) {
                 case 1: // RFC
-                    System.out.println("Ingresa el RFC del usuario a buscar: ");
+                    System.out.println(
+                        "Ingresa el RFC del usuario a buscar: ");
                     String rfc = in.nextLine();
                     ManejadorClientes.listarPorRfc(rfc);
                     break;
                 case 2: // Nombre
-                    System.out.println("Ingresa el nombre del usuario a buscar: ");
+                    System.out.println(
+                        "Ingresa el nombre del usuario a buscar: ");
                     String nombre = in.nextLine();
                     ManejadorClientes.listarNombre(nombre);
                     break;
                 case 3: // Apellido
-                    System.out.println("Ingresa el apellido del usuario a buscar: ");
+                    System.out.println(
+                        "Ingresa el apellido del usuario a buscar: ");
                     String apellido = in.nextLine();
                     ManejadorClientes.listarApellido(apellido);
                     break;
@@ -153,10 +156,15 @@ public class App {
                     listarMovimientos(rfc);
                     break;
                 case 4: // Cancelar cuenta
-                    System.out.println("Ingresa el identificador de la cuenta: ");
+                    System.out.println(
+                        "Ingresa el identificador de la cuenta: ");
                     String identificador = in.nextLine();
                     
-                    ManejadorDebito.eliminarCuenta(ManejadorDebito.buscarCuentaEspecifica(rfc, identificador));
+                    ManejadorDebito.eliminarCuenta(
+                        ManejadorDebito.buscarCuentaEspecifica(
+                            rfc, identificador
+                            )
+                        );
                     break;
                 case 5: // Mostrar cuentas
                     ManejadorDebito.mostrarCuentasRegistradas(rfc);
@@ -204,7 +212,8 @@ public class App {
         System.out.println("Ingresa el identificador de la cuenta: ");
         String identificador = in.nextLine();
 
-        Debito cuenta = ManejadorDebito.buscarCuentaEspecifica(rfc, identificador);
+        Debito cuenta = ManejadorDebito.buscarCuentaEspecifica(
+            rfc, identificador);
 
         if(cuenta == null){
             System.out.println("No se encontró la cuenta a listar");
@@ -241,7 +250,8 @@ public class App {
                     ManejadorCredito.crearCuentaCredito(rfc);
                     break;
                 case 2: // Ingresar a una cuenta
-                    System.out.println("Ingresa el identificador de la cuenta a ingresar: ");
+                    System.out.println(
+                        "Ingresa el identificador de la cuenta a ingresar: ");
                     String id = in.nextLine();
                     ingresarACuenta(rfc, id);
                     break;
@@ -257,8 +267,9 @@ public class App {
         } while (opt!=0);
     }
 
-    void ingresarACuenta(String rfc, String identificador) throws ParseException{
-        Credito cuenta = ManejadorCredito.obtenerCuentaEspecifica(rfc, identificador);
+    void ingresarACuenta(String rfc, String identificador)throws ParseException{
+        Credito cuenta = ManejadorCredito.obtenerCuentaEspecifica(
+            rfc, identificador);
         if(cuenta == null){
             System.out.println("OPERACIÓN FALLIDA: No se encontró la cuenta\n");
             return;
@@ -282,13 +293,13 @@ public class App {
                     consultarMovimientosCredito(cuenta);
                     break;
                 case 3: // Consultar corte
-
+                    ManejadorCredito.consultarCorte(cuenta);
                     break;
                 case 4: // Consultar detalles del corte
 
                     break;
                 case 5: // Realizar pago
-
+                    ManejadorCredito.realizarPago(cuenta);
                     break;
                 case 6: // imprimir datos de cuenta
                     ManejadorCredito.imprimirDatosCuenta(cuenta);
@@ -330,7 +341,7 @@ public class App {
                     ManejadorCredito.imprimirHistorialGeneral(cuenta);
                     break;
                 case 2: // Listar por año-mes
-
+                    ManejadorCredito.listarPorMesYAnio(cuenta);
                     break;
                 default:
                     break;
