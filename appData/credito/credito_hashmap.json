@@ -62,12 +62,32 @@
             "minute": 0,
             "second": 0
           }
+        },
+        {
+          "concepto": "Intereses",
+          "monto": 100.0,
+          "fecha": "Feb 12, 2005, 12:00:00 AM",
+          "tipo": "Corte",
+          "calendar": {
+            "year": 2005,
+            "month": 1,
+            "dayOfMonth": 12,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
         }
       ],
-      "esCorte": false,
-      "cortes": [],
+      "esCorte": true,
+      "cortes": [
+        {
+          "fechaCorte": "Feb 12, 2005, 12:00:00 AM",
+          "cantidadTotal": 600.0,
+          "pagoRealizado": 0.0
+        }
+      ],
       "numBound": 100,
-      "saldo": 500.0
+      "saldo": 600.0
     },
     {
       "rfc": "AAE041012941",
@@ -75,9 +95,30 @@
       "limiteCredito": 1000.0,
       "interesMensual": 0.1,
       "porcentajeMinimo": 0.01,
-      "historial": [],
-      "esCorte": false,
-      "cortes": [],
+      "historial": [
+        {
+          "concepto": "Intereses",
+          "monto": 0.0,
+          "fecha": "Feb 12, 2005, 12:00:00 AM",
+          "tipo": "Corte",
+          "calendar": {
+            "year": 2005,
+            "month": 1,
+            "dayOfMonth": 12,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        }
+      ],
+      "esCorte": true,
+      "cortes": [
+        {
+          "fechaCorte": "Feb 12, 2005, 12:00:00 AM",
+          "cantidadTotal": 0.0,
+          "pagoRealizado": 0.0
+        }
+      ],
       "numBound": 100,
       "saldo": 0.0
     }
@@ -89,9 +130,30 @@
       "limiteCredito": 1.0E7,
       "interesMensual": 0.2,
       "porcentajeMinimo": 0.1,
-      "historial": [],
-      "esCorte": false,
-      "cortes": [],
+      "historial": [
+        {
+          "concepto": "Intereses",
+          "monto": 0.0,
+          "fecha": "Feb 12, 2005, 12:00:00 AM",
+          "tipo": "Corte",
+          "calendar": {
+            "year": 2005,
+            "month": 1,
+            "dayOfMonth": 12,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        }
+      ],
+      "esCorte": true,
+      "cortes": [
+        {
+          "fechaCorte": "Feb 12, 2005, 12:00:00 AM",
+          "cantidadTotal": 0.0,
+          "pagoRealizado": 0.0
+        }
+      ],
       "numBound": 100,
       "saldo": 0.0
     }

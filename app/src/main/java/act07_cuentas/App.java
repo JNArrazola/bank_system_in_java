@@ -296,7 +296,7 @@ public class App {
                     ManejadorCredito.consultarCorte(cuenta);
                     break;
                 case 4: // Consultar detalles del corte
-
+                    
                     break;
                 case 5: // Realizar pago
                     ManejadorCredito.realizarPago(cuenta);
