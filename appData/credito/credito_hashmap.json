@@ -272,11 +272,207 @@
             "minute": 0,
             "second": 0
           }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 7.5572223496549915,
+          "fecha": "Feb 28, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 1,
+            "dayOfMonth": 28,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 8.31294458462049,
+          "fecha": "Mar 31, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 2,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 9.14423904308254,
+          "fecha": "Apr 30, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 3,
+            "dayOfMonth": 30,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 10.058662947390793,
+          "fecha": "May 31, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 4,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 11.064529242129874,
+          "fecha": "Jun 30, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 5,
+            "dayOfMonth": 30,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 12.170982166342862,
+          "fecha": "Jul 31, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 6,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 13.388080382977149,
+          "fecha": "Aug 31, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 7,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 14.726888421274863,
+          "fecha": "Sep 30, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 8,
+            "dayOfMonth": 30,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 16.199577263402347,
+          "fecha": "Oct 31, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 9,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 17.819534989742582,
+          "fecha": "Nov 30, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 10,
+            "dayOfMonth": 30,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 19.60148848871684,
+          "fecha": "Dec 31, 2007, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2007,
+            "month": 11,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 21.561637337588525,
+          "fecha": "Jan 31, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 0,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 23.71780107134738,
+          "fecha": "Feb 29, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 1,
+            "dayOfMonth": 29,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 26.089581178482117,
+          "fecha": "Mar 31, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 2,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
         }
       ],
       "corteAPagar": {
-        "fechaCorte": "Jan 31, 2007, 12:00:00 AM",
-        "cantidadTotal": 75.57222349654991,
+        "fechaCorte": "Mar 31, 2008, 12:00:00 AM",
+        "cantidadTotal": 286.98539296330324,
         "pagoRealizado": 0.0,
         "estado": "NO PAGADO PERO VIGENTE"
       },
@@ -376,10 +572,94 @@
           "cantidadTotal": 75.57222349654991,
           "pagoRealizado": 0.0,
           "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Feb 28, 2007, 12:00:00 AM",
+          "cantidadTotal": 83.1294458462049,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Mar 31, 2007, 12:00:00 AM",
+          "cantidadTotal": 91.4423904308254,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Apr 30, 2007, 12:00:00 AM",
+          "cantidadTotal": 100.58662947390793,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "May 31, 2007, 12:00:00 AM",
+          "cantidadTotal": 110.64529242129873,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Jun 30, 2007, 12:00:00 AM",
+          "cantidadTotal": 121.70982166342861,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Jul 31, 2007, 12:00:00 AM",
+          "cantidadTotal": 133.88080382977148,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Aug 31, 2007, 12:00:00 AM",
+          "cantidadTotal": 147.26888421274862,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Sep 30, 2007, 12:00:00 AM",
+          "cantidadTotal": 161.99577263402347,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Oct 31, 2007, 12:00:00 AM",
+          "cantidadTotal": 178.1953498974258,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Nov 30, 2007, 12:00:00 AM",
+          "cantidadTotal": 196.0148848871684,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Dec 31, 2007, 12:00:00 AM",
+          "cantidadTotal": 215.61637337588525,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Jan 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 237.17801071347378,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Feb 29, 2008, 12:00:00 AM",
+          "cantidadTotal": 260.89581178482115,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Mar 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 286.98539296330324,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
         }
       ],
       "numBound": 100,
-      "saldo": 75.57222349654991
+      "saldo": 286.98539296330324
     }
   ]
 }
