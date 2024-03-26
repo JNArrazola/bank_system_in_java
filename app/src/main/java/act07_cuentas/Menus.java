@@ -86,6 +86,7 @@ public class Menus {
         System.out.println("4) Consultar historial de cortes");
         System.out.println("5) Realizar pago de corte");
         System.out.println("6) Imprimir datos cuenta");
+        System.out.println("7) Cancelar cuenta de crédito");
         System.out.println("0) Salir");
     }
 
@@ -105,8 +106,16 @@ public class Menus {
         System.out.println("0) Salir");
     }
 
+    public static void subsubsubMenuListarCortes(){
+        imprimirFecha();
+        System.out.println("¿Cómo deseas listar?");
+        System.out.println("1) General");
+        System.out.println("2) Por año-mes");
+        System.out.println("0) Salir");
+    }
+
     public static void imprimirFecha(){
-        System.out.println("===================================");
+        System.out.println("\n===================================");
         System.out.println(ManejadorCredito.getActualDate());
         System.out.println("===================================");
     }

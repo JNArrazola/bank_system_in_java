@@ -265,7 +265,6 @@ public class App {
 
         System.out.println("===================================");
         System.out.println("¡Bienvenido al sistema!");
-        System.out.println(ManejadorCredito.getActualDate());
         System.out.println("===================================");
         
         int opt;
@@ -281,10 +280,10 @@ public class App {
                     consultarMovimientosCredito(cuenta);
                     break;
                 case 3: // Consultar corte actual
-                    ManejadorCredito.imprimirCortes(cuenta);
+                    ManejadorCredito.imprimirCorteActual(cuenta);
                     break; 
                 case 4: // Consultar todos los cortes
-                    ManejadorCredito.imprimirHistorialCortes(cuenta);
+                    consultarCortes(cuenta);
                     break;
                 case 5: // Realizar pago
                     ManejadorCredito.realizarPagoCorte(cuenta);
@@ -292,6 +291,8 @@ public class App {
                 case 6: // imprimir datos de cuenta
                     ManejadorCredito.imprimirDatosCuenta(cuenta);
                     break;
+                case 7: // eliminar cuenta
+                    if(ManejadorCredito.cancelarCuenta(cuenta)) return;
                 default:
                     break;
             }
@@ -328,7 +329,27 @@ public class App {
                     ManejadorCredito.imprimirHistorialGeneral(cuenta);
                     break;
                 case 2: // Listar por año-mes
+                    ManejadorCredito.listarMovimientosAnioMes(cuenta);
+                    break;
+                default:
+                    break;
+            }
+        } while (opt!=0);
+    }
 
+    void consultarCortes(Credito cuenta) throws ParseException{
+        int opt;
+
+        do {
+            Menus.subsubsubMenuListarCortes();
+            opt = Integer.parseInt(in.nextLine());
+
+            switch (opt) {
+                case 1: // Imprimir todos los cortes
+                    ManejadorCredito.imprimirHistorialCortes(cuenta);
+                    break;
+                case 2: 
+                    ManejadorCredito.listarAñoMes(cuenta);
                     break;
                 default:
                     break;

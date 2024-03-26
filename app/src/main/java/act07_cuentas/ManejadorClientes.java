@@ -191,8 +191,9 @@ public class ManejadorClientes {
         }
         
         ArrayList<Debito> cuentasDebito = ManejadorDebito.obtenerListaCuentas(rfc); 
+        ArrayList<Credito> cuentasCredito = ManejadorCredito.obtenerCuentas(rfc);
 
-        if(cuentasDebito.isEmpty()){
+        if(cuentasDebito.isEmpty()&&cuentasCredito.isEmpty()){
             ManejadorDebito.eliminarRegistro(rfc);
             clientes.remove(c);
             System.out.println("Cliente borrado éxitosamente\n\n");

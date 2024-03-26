@@ -3,6 +3,7 @@ package act07_cuentas;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
 
 public class Corte implements Serializable {
     private final Date fechaCorte;
@@ -47,13 +48,31 @@ public class Corte implements Serializable {
         this.pagoRealizado = pagoRealizado;
     }
 
+    public int getDay() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaCorte);
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+    
+    public int getMonth() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaCorte);
+        return calendar.get(Calendar.MONTH);
+    }
+    
+    public int getYear() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaCorte);
+        return calendar.get(Calendar.YEAR);
+    }
+
     /**
      * Función que imprime el corte, y si se pagó o no
      * @param porcentajeMinimo
      * @return
       */
     public String imprimirCorte(double porcentajeMinimo) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         String formattedDate = (fechaCorte != null) ? dateFormat.format(fechaCorte) : "N/A";
         
         return "Corte { " +

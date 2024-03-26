@@ -21,7 +21,7 @@ public class ManejadorCredito {
         if(cuentasCredito.containsKey(rfc)){
             return cuentasCredito.get(rfc);
         } else {
-            return null;
+            return new ArrayList<Credito>();
         }
     }
 
@@ -177,6 +177,7 @@ public class ManejadorCredito {
             return;
         }
 
+        mostrarBalance(cuenta);
         double abono;
         do {
             System.out.println("Ingresa la cantidad a abonar: ");
@@ -208,7 +209,7 @@ public class ManejadorCredito {
         System.out.println("=== OPERACIÓN ÉXITOSA === \n\n");
     }
     
-    public static void imprimirCortes(Credito cuenta){
+    public static void imprimirCorteActual(Credito cuenta){
         if(cuenta.getCorteAPagar()==null){
             System.out.println("No hay ningún corte vigente");
             return;
@@ -216,7 +217,6 @@ public class ManejadorCredito {
         
         System.out.println("El corte vigente es: ");
         System.out.println(cuenta.getCorteAPagar().imprimirCorte(cuenta.getPorcentajeMinimo()));
-        System.out.println("\n\n");
     }
 
     public static void imprimirHistorialCortes(Credito cuenta){
@@ -348,12 +348,6 @@ public class ManejadorCredito {
         actualDate = calendar.getTime();
     }
 
-    /**
-     * Si no se realizó el pago del corte vamos a poner que no se realizó y vamos a hacer el cargo correspondiente
-     * la fecha de dicho corte va a ser el último día del período actual, después vamos a avanzar al siguiente mes
-     * queda en TODO: Realizar la validación de que si el saldo es mayor que la cantidad total de préstamo entonces no 
-     * se puede realizar ningún movimiento hasta que no se pague
-      */
     public static void realizarCorte(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(actualDate);
@@ -362,15 +356,16 @@ public class ManejadorCredito {
         
         for(ArrayList<Credito> cuentas : cuentasCredito.values()){
             for(Credito c : cuentas){
+                if(c.getCorteAPagar()!=null||c.getCorteAPagar().getEstado().equals("NO PAGADO PERO VIGENTE")){
+                    c.getCorteAPagar().setEstado("NO SE PAGÓ");
+                    c.setCorteAPagar(null);
+                }
+                
                 if(c.getSaldo()==0){
                     c.añadirCorte(new Corte(lastDayOfMonth, 0, 0, "Pagado"));
                     continue;
                 }
 
-                if(c.getCorteAPagar()!=null){
-                    c.getCorteAPagar().setEstado("NO SE PAGÓ");
-                }
-                
                 Corte corte = new Corte(lastDayOfMonth, c.getSaldo() + c.getSaldo()*c.getInteresMensual(), 0, "NO PAGADO PERO VIGENTE");
                 c.setCorteAPagar(corte);
                 c.añadirCorte(corte);
@@ -379,6 +374,9 @@ public class ManejadorCredito {
             }
         }
         moveMonth();
+        System.out.println("===================================");
+        System.out.println("=== Corte realizado con éxito ===");
+        System.out.println("===================================");
     }
 
     public static void realizarPagoCorte(Credito cuenta) throws ParseException{
@@ -387,11 +385,14 @@ public class ManejadorCredito {
             return;
         }
         
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        String fechaFormateada = dateFormat.format(cuenta.getCorteAPagar().getFechaCorte());
+
         System.out.println("=== BIENVENIDO AL MENÚ DE CORTES ===");
         System.out.println("INFORMACIÓN: ");
         System.out.println("Pago para no generar interes: $" + cuenta.getSaldo());
         System.out.println("Pago mínimo: $" + cuenta.getSaldo() * cuenta.getPorcentajeMinimo());
-        System.out.println("Fecha de corte: " + cuenta.getCorteAPagar().getFechaCorte());
+        System.out.println("Fecha de corte: " + fechaFormateada);
 
         System.out.println("¿Desea pagar el corte?");
         System.out.println("1) Sí");
@@ -437,6 +438,86 @@ public class ManejadorCredito {
         cuenta.setCorteAPagar(null);
     }
 
+    public static boolean cancelarCuenta(Credito cuenta){
+        if(cuenta.getSaldo()!=0){
+            System.out.print("La cuenta aún tiene saldo, no se puede cancelar\n\n");
+            return false;
+        }
+        
+        System.out.println("\n¿Esta seguro que desea cancelar su cuenta?");
+        System.out.println("1) Si");
+        System.out.println("2) No");
+        int opt = Integer.parseInt(in.nextLine());
+
+        if(opt!=1){
+            System.out.println("\nOperación cancelada...\n");
+            return false;
+        }
+
+        ArrayList<Credito> cuentasUsuario = obtenerCuentas(cuenta.getRfc());
+        cuentasUsuario.remove(cuenta);
+        System.out.println("============================");
+        System.out.println("Cuenta borrada éxitosamente");
+        System.out.println("============================");
+        return true;
+    }
+
+    public static void listarAñoMes(Credito cuenta) throws ParseException{
+        ArrayList<Corte> listaCortes = cuenta.getCortes();
+        if (listaCortes == null||listaCortes.isEmpty()) {
+            System.out.println("La cuenta no tiene cortes registrados\n\n");
+            return;
+        }
+
+        System.out.println("Ingresa el año para listar: ");
+        int year = Integer.parseInt(in.nextLine());
+        System.out.println("Ingresa el mes para listar: ");
+        int month = Integer.parseInt(in.nextLine()) - 1;
+
+        boolean flag = false;
+        for (Corte m : listaCortes) {
+            if (m.getYear() == year && m.getMonth() == month) {
+                System.out.println(m.imprimirCorte(cuenta.getPorcentajeMinimo()));
+                flag = true;
+            }
+        }
+
+        if(!flag) System.out.println("No hay cortes ese mes\n");
+    }
+
+    public static void listarMovimientosAnioMes(Credito credito){
+
+
+        // validar que la cuenta tenga movimientos
+        ArrayList<Movimiento> movimientos = credito.getHistorial();
+        if (movimientos == null||movimientos.isEmpty()) {
+            System.out.println("La cuenta no tiene movimientos\n\n");
+            return;
+        }
+
+        System.out.println("Ingresa el año para listar: ");
+        int year = Integer.parseInt(in.nextLine());
+        System.out.println("Ingresa el mes para listar: ");
+        int month = Integer.parseInt(in.nextLine()) - 1;
+
+        Collections.sort(movimientos, new Comparator<Movimiento>() {
+            @Override
+            public int compare(Movimiento o1, Movimiento o2) {
+                return o1.getFecha().compareTo(o2.getFecha());
+            }
+        });
+
+        boolean flag = false;
+        // imprimir los movimientos
+        for (Movimiento m : movimientos) {
+            if (m.getYear() == year && m.getMonth() == month) {
+                System.out.println(m.toString());
+                flag = true;
+            }
+        }
+
+        if(!flag) System.out.println("No se encontraron movimientos este mes\n");
+    }
     // *******************************************************************
     // UTILITIES
     // *******************************************************************
@@ -462,5 +543,11 @@ public class ManejadorCredito {
         calendar.setTime(actualDate);
 
         return "Período actual: " + Movimiento.obtenerMes(calendar.get(Calendar.MONTH)) + "-" + calendar.get(Calendar.YEAR);
+    }
+
+    public static void mostrarBalance(Credito credito){
+        System.out.println("============================================================");
+        System.out.println("El saldo actual de la cuenta es de: " + credito.getSaldo());
+        System.out.println("============================================================");
     }
 }
