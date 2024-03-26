@@ -356,8 +356,7 @@ public class ManejadorCredito {
         
         for(ArrayList<Credito> cuentas : cuentasCredito.values()){
             for(Credito c : cuentas){
-                System.out.println(c.getCorteAPagar().imprimirCorte(c.getPorcentajeMinimo()));
-                if(c.getCorteAPagar()!=null||c.getCorteAPagar().getEstado().equals("NO PAGADO PERO VIGENTE")||c.getCorteAPagar().getPagoRealizado()==0){
+                if(c.getCorteAPagar()!=null){
                     c.getCorteAPagar().setEstado("NO SE PAGÓ");
                     c.setCorteAPagar(null);
                 }
