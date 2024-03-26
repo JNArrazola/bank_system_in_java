@@ -90,11 +90,25 @@
             "minute": 0,
             "second": 0
           }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 39.93000000000001,
+          "fecha": "Oct 31, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 9,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
         }
       ],
       "corteAPagar": {
-        "fechaCorte": "Sep 30, 2008, 12:00:00 AM",
-        "cantidadTotal": 399.3,
+        "fechaCorte": "Oct 31, 2008, 12:00:00 AM",
+        "cantidadTotal": 439.23,
         "pagoRealizado": 0.0,
         "estado": "NO PAGADO PERO VIGENTE"
       },
@@ -122,10 +136,16 @@
           "cantidadTotal": 399.3,
           "pagoRealizado": 0.0,
           "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Oct 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 439.23,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
         }
       ],
       "numBound": 100,
-      "saldo": 399.3
+      "saldo": 439.23
     }
   ],
   "PAN00033010310": [
@@ -205,11 +225,25 @@
             "minute": 0,
             "second": 0
           }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 57.6,
+          "fecha": "Oct 31, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 9,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
         }
       ],
       "corteAPagar": {
-        "fechaCorte": "Sep 30, 2008, 12:00:00 AM",
-        "cantidadTotal": 288.0,
+        "fechaCorte": "Oct 31, 2008, 12:00:00 AM",
+        "cantidadTotal": 345.6,
         "pagoRealizado": 0.0,
         "estado": "NO PAGADO PERO VIGENTE"
       },
@@ -231,10 +265,16 @@
           "cantidadTotal": 288.0,
           "pagoRealizado": 0.0,
           "estado": "NO PAGADO PERO VIGENTE"
+        },
+        {
+          "fechaCorte": "Oct 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 345.6,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
         }
       ],
       "numBound": 100,
-      "saldo": 288.0
+      "saldo": 345.6
     }
   ]
 }

@@ -40,11 +40,10 @@ public class App {
             }
         } while (opt!=0);
 
+
         ManejadorClientes.save();
         ManejadorDebito.save();
         ManejadorCredito.save();
-        // hacer el corte 
-        // ManejadorCredito.saveCorte();
     }
 
     void gestionarClientes() throws ParseException{
