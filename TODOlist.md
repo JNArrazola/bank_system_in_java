@@ -5,4 +5,4 @@
 - [X] Crear las funciones de listar por año-mes
 - [X] Arreglar el formato de impresión de fechas (Sobre todo en cortes)
 - [X] Borrar cuenta de crédito
-- [ ] En crear cuenta de debito, al final debe mostrar el identificador de tu cuenta
+- [X] En crear cuenta de debito, al final debe mostrar el identificador de tu cuenta
