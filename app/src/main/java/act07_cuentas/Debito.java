@@ -86,8 +86,8 @@ public class Debito implements Serializable {
     public String toString() {
         return "Débito {" + 
             "\n\tIdentificador: " + identificadorCuenta + 
-            "\n\t Saldo: " + saldo + 
-            "\n\t RFC: " + rfc + 
+            "\n\tSaldo: " + saldo + 
+            "\n\tRFC: " + rfc + 
         "\n}";
     }
 }

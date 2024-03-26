@@ -78,21 +78,19 @@ public class Menus {
     }
 
     public static void subsubMenuIngresarCuenta(){
+        imprimirFecha();
         System.out.println("¿Qué deseas hacer?");
         System.out.println("1) Registrar movimiento");
         System.out.println("2) Consultar movimientos");
-        System.out.println("3) Consultar corte");
-        System.out.println("4) Consultar detalles de corte");
-        System.out.println("5) Realizar pago");
+        System.out.println("3) Consultar corte actual");
+        System.out.println("4) Consultar historial de cortes");
+        System.out.println("5) Realizar pago de corte");
         System.out.println("6) Imprimir datos cuenta");
         System.out.println("0) Salir");
     }
 
     public static void subsubsubMenuRegistrarMovimientoCredito(){
-        System.out.println("===================================");
-        System.out.println(ManejadorCredito.getActualDate());
-        System.out.println("===================================");
-
+        imprimirFecha();
         System.out.println("¿Qué movimiento deseas hacer?");
         System.out.println("1) Abono");
         System.out.println("2) Retiro");
@@ -100,9 +98,16 @@ public class Menus {
     }
 
     public static void subsubsubMenuListar(){
+        imprimirFecha();
         System.out.println("¿Cómo deseas listar?");
         System.out.println("1) General");
         System.out.println("2) Por año-mes");
         System.out.println("0) Salir");
+    }
+
+    public static void imprimirFecha(){
+        System.out.println("===================================");
+        System.out.println(ManejadorCredito.getActualDate());
+        System.out.println("===================================");
     }
 }

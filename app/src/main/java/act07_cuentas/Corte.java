@@ -1,25 +1,26 @@
 package act07_cuentas;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Corte implements Serializable {
     private final Date fechaCorte;
     private final double cantidadTotal;
-    private final double pagoRealizado;
+    private double pagoRealizado;
+    private String estado;
+    
     /**
-     * La idea acá es que al momento de pagarse se registre el corte, y en 
-     * 'estado' se coloque si se pago o se omitió el pago
      * @param fechaCorte
      * @param cantidadTotal
+     * @param pagoRealizado
      * @param estado
-     * 
-     * @author Joshua
       */
-    Corte(Date fechaCorte, double cantidadTotal, double pagoRealizado){
+    Corte(Date fechaCorte, double cantidadTotal, double pagoRealizado, String estado){
         this.fechaCorte = fechaCorte;
         this.cantidadTotal = cantidadTotal;
         this.pagoRealizado = pagoRealizado;
+        this.estado = estado;
     }
 
     public double getCantidadTotal() {
@@ -30,18 +31,37 @@ public class Corte implements Serializable {
         return fechaCorte;
     }
 
+    public String getEstado(){
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public double getPagoRealizado() {
+        return pagoRealizado;
+    }
+
+    public void setPagoRealizado(double pagoRealizado){
+        this.pagoRealizado = pagoRealizado;
+    }
+
     /**
      * Función que imprime el corte, y si se pagó o no
      * @param porcentajeMinimo
      * @return
       */
     public String imprimirCorte(double porcentajeMinimo) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String formattedDate = (fechaCorte != null) ? dateFormat.format(fechaCorte) : "N/A";
+        
         return "Corte { " +
-        "\n\tFecha corte: " + fechaCorte + 
+        "\n\tFecha corte: " + formattedDate + 
         "\n\tPago realizado: $" + pagoRealizado +
         "\n\tPago minimo: $" + cantidadTotal * porcentajeMinimo + 
         "\n\tPago para no generar intereses: $" + cantidadTotal + 
-        "\n\tEstado: " + ((pagoRealizado != 0) ? "Pagado" : "No pagado") + 
+        "\n\tEstado: " + estado + 
         "\n}";
     }
 }

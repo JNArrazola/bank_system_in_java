@@ -33,7 +33,7 @@ public class App {
                     gestionarCuentas();
                     break;
                 case 3: // Realizar corte de tarjetas de crédito
-                    
+                    ManejadorCredito.realizarCorte();
                     break;
                 default:
                     break;
@@ -280,14 +280,14 @@ public class App {
                 case 2: // Consultar movimientos 
                     consultarMovimientosCredito(cuenta);
                     break;
-                case 3: // Consultar corte
-
-                    break;
-                case 4: // Consultar detalles del corte
-
+                case 3: // Consultar corte actual
+                    ManejadorCredito.imprimirCortes(cuenta);
+                    break; 
+                case 4: // Consultar todos los cortes
+                    ManejadorCredito.imprimirHistorialCortes(cuenta);
                     break;
                 case 5: // Realizar pago
-
+                    ManejadorCredito.realizarPagoCorte(cuenta);
                     break;
                 case 6: // imprimir datos de cuenta
                     ManejadorCredito.imprimirDatosCuenta(cuenta);
@@ -301,7 +301,6 @@ public class App {
     void registrarMovimientoCredito(Credito cuenta) throws ParseException{
         int opt;
         do {
-
             Menus.subsubsubMenuRegistrarMovimientoCredito();
             opt = Integer.parseInt(in.nextLine());
             switch (opt) {

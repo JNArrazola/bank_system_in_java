@@ -2,98 +2,90 @@
   "AAE041012941": [
     {
       "rfc": "AAE041012941",
-      "identificadorCuenta": "AAE04101294138",
-      "limiteCredito": 10000.0,
-      "interesMensual": 0.2,
-      "porcentajeMinimo": 0.15,
+      "identificadorCuenta": "AAE0410129419",
+      "limiteCredito": 2000.0,
+      "interesMensual": 0.15,
+      "porcentajeMinimo": 0.1,
       "historial": [
         {
           "concepto": "",
-          "monto": 500.0,
-          "fecha": "Oct 9, 2004, 12:00:00 AM",
-          "tipo": "Abono",
-          "calendar": {
-            "year": 2004,
-            "month": 9,
-            "dayOfMonth": 9,
-            "hourOfDay": 0,
-            "minute": 0,
-            "second": 0
-          }
-        },
-        {
-          "concepto": "",
-          "monto": 500.0,
-          "fecha": "Oct 12, 2004, 12:00:00 AM",
-          "tipo": "Abono",
-          "calendar": {
-            "year": 2004,
-            "month": 9,
-            "dayOfMonth": 12,
-            "hourOfDay": 0,
-            "minute": 0,
-            "second": 0
-          }
-        },
-        {
-          "concepto": "",
           "monto": 1000.0,
-          "fecha": "Jan 5, 2005, 12:00:00 AM",
-          "tipo": "Abono",
-          "calendar": {
-            "year": 2005,
-            "month": 0,
-            "dayOfMonth": 5,
-            "hourOfDay": 0,
-            "minute": 0,
-            "second": 0
-          }
-        },
-        {
-          "concepto": "",
-          "monto": 1000.0,
-          "fecha": "Jan 12, 2005, 12:00:00 AM",
+          "fecha": "Jul 12, 2005, 12:00:00 AM",
           "tipo": "Retiro",
           "calendar": {
             "year": 2005,
-            "month": 0,
+            "month": 6,
             "dayOfMonth": 12,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 150.0,
+          "fecha": "Jul 31, 2005, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2005,
+            "month": 6,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 172.5,
+          "fecha": "Aug 31, 2005, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2005,
+            "month": 7,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "PAGO CORTE",
+          "monto": 1300.0,
+          "fecha": "Sep 20, 2005, 12:00:00 AM",
+          "tipo": "Pago de corte",
+          "calendar": {
+            "year": 2005,
+            "month": 8,
+            "dayOfMonth": 20,
             "hourOfDay": 0,
             "minute": 0,
             "second": 0
           }
         }
       ],
-      "esCorte": false,
-      "cortes": [],
+      "cortes": [
+        {
+          "fechaCorte": "Jun 30, 2005, 12:00:00 AM",
+          "cantidadTotal": 0.0,
+          "pagoRealizado": 0.0,
+          "estado": "Pagado"
+        },
+        {
+          "fechaCorte": "Jul 31, 2005, 12:00:00 AM",
+          "cantidadTotal": 1150.0,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Aug 31, 2005, 12:00:00 AM",
+          "cantidadTotal": 1322.5,
+          "pagoRealizado": 1300.0,
+          "estado": "Pagado"
+        }
+      ],
       "numBound": 100,
-      "saldo": 500.0
-    },
-    {
-      "rfc": "AAE041012941",
-      "identificadorCuenta": "AAE04101294175",
-      "limiteCredito": 1000.0,
-      "interesMensual": 0.1,
-      "porcentajeMinimo": 0.01,
-      "historial": [],
-      "esCorte": false,
-      "cortes": [],
-      "numBound": 100,
-      "saldo": 0.0
-    }
-  ],
-  "PED0410125102": [
-    {
-      "rfc": "PED0410125102",
-      "identificadorCuenta": "PED04101251027",
-      "limiteCredito": 1.0E7,
-      "interesMensual": 0.2,
-      "porcentajeMinimo": 0.1,
-      "historial": [],
-      "esCorte": false,
-      "cortes": [],
-      "numBound": 100,
-      "saldo": 0.0
+      "saldo": 22.5
     }
   ]
 }
