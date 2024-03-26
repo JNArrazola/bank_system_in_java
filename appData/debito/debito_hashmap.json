@@ -20,6 +20,13 @@
       "rfc": "PAN00033010310",
       "historial": [],
       "numBound": 100
+    },
+    {
+      "identificadorCuenta": "PAN0003301031024",
+      "saldo": 4000000.0,
+      "rfc": "PAN00033010310",
+      "historial": [],
+      "numBound": 100
     }
   ]
 }
