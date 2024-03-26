@@ -39,6 +39,9 @@ public class ManejadorDebito {
             cuentas.get(rfc).add(new Debito(saldo, rfc));
             System.out.println("Cuenta agregada con éxito");
         }
+
+        System.out.println("Cuenta creada con éxito\n");
+        System.out.println("El identificador de la cuenta es: " + rfc + cuentas.get(rfc).get(cuentas.get(rfc).size()-1).getIdentificadorCuenta() + "\n");
         ManejadorDebito.save();
     }
 

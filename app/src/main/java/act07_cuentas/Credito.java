@@ -98,8 +98,8 @@ public class Credito implements Serializable {
         "\n\tRFC: " + rfc + 
         "\n\tSaldo: $" + saldo + 
         "\n\tLímite de crédito: $" + limiteCredito + 
-        "\n\tPorcentaje mínimo de pago: %" + porcentajeMinimo + 
-        "\n\tPorcentaje de interés mensual: %" + interesMensual + 
+        "\n\tPorcentaje mínimo de pago: %" + porcentajeMinimo*100 + 
+        "\n\tPorcentaje de interés mensual: %" + interesMensual*100 + 
         "\n\tCorte pendiente: " + ((corteAPagar!=null) ? "Si" : "No") +
         "\n}";
     }

@@ -48,18 +48,193 @@
             "minute": 0,
             "second": 0
           }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 30.0,
+          "fecha": "Jul 31, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 6,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 33.0,
+          "fecha": "Aug 31, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 7,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 36.300000000000004,
+          "fecha": "Sep 30, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 8,
+            "dayOfMonth": 30,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
         }
       ],
+      "corteAPagar": {
+        "fechaCorte": "Sep 30, 2008, 12:00:00 AM",
+        "cantidadTotal": 399.3,
+        "pagoRealizado": 0.0,
+        "estado": "NO PAGADO PERO VIGENTE"
+      },
       "cortes": [
         {
           "fechaCorte": "Jun 30, 2008, 12:00:00 AM",
           "cantidadTotal": 1100.0,
           "pagoRealizado": 800.0,
           "estado": "Pagado"
+        },
+        {
+          "fechaCorte": "Jul 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 330.0,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Aug 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 363.0,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Sep 30, 2008, 12:00:00 AM",
+          "cantidadTotal": 399.3,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
         }
       ],
       "numBound": 100,
-      "saldo": 300.0
+      "saldo": 399.3
+    }
+  ],
+  "PAN00033010310": [
+    {
+      "rfc": "PAN00033010310",
+      "identificadorCuenta": "PAN0003301031089",
+      "limiteCredito": 200.0,
+      "interesMensual": 0.2,
+      "porcentajeMinimo": 0.1,
+      "historial": [
+        {
+          "concepto": "",
+          "monto": 10.0,
+          "fecha": "Jul 30, 2008, 12:00:00 AM",
+          "tipo": "Retiro",
+          "calendar": {
+            "year": 2008,
+            "month": 6,
+            "dayOfMonth": 30,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "",
+          "monto": 10.0,
+          "fecha": "Jul 31, 2008, 12:00:00 AM",
+          "tipo": "Abono",
+          "calendar": {
+            "year": 2008,
+            "month": 6,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "",
+          "monto": 200.0,
+          "fecha": "Aug 10, 2008, 12:00:00 AM",
+          "tipo": "Retiro",
+          "calendar": {
+            "year": 2008,
+            "month": 7,
+            "dayOfMonth": 10,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 40.0,
+          "fecha": "Aug 31, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 7,
+            "dayOfMonth": 31,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        },
+        {
+          "concepto": "Interes corte",
+          "monto": 48.0,
+          "fecha": "Sep 30, 2008, 12:00:00 AM",
+          "tipo": "Interes",
+          "calendar": {
+            "year": 2008,
+            "month": 8,
+            "dayOfMonth": 30,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          }
+        }
+      ],
+      "corteAPagar": {
+        "fechaCorte": "Sep 30, 2008, 12:00:00 AM",
+        "cantidadTotal": 288.0,
+        "pagoRealizado": 0.0,
+        "estado": "NO PAGADO PERO VIGENTE"
+      },
+      "cortes": [
+        {
+          "fechaCorte": "Jul 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 0.0,
+          "pagoRealizado": 0.0,
+          "estado": "Pagado"
+        },
+        {
+          "fechaCorte": "Aug 31, 2008, 12:00:00 AM",
+          "cantidadTotal": 240.0,
+          "pagoRealizado": 0.0,
+          "estado": "NO SE PAGÓ"
+        },
+        {
+          "fechaCorte": "Sep 30, 2008, 12:00:00 AM",
+          "cantidadTotal": 288.0,
+          "pagoRealizado": 0.0,
+          "estado": "NO PAGADO PERO VIGENTE"
+        }
+      ],
+      "numBound": 100,
+      "saldo": 288.0
     }
   ]
 }

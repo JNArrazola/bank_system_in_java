@@ -73,7 +73,9 @@ public class ManejadorCredito {
         if(!cuentasCredito.containsKey(rfc))
             cuentasCredito.put(rfc, new ArrayList<Credito>());
         
+        System.out.println("Cuenta creada con éxito\n");
         cuentasCredito.get(rfc).add(new Credito(rfc, limiteCredito, interesMensual, porcentajeMinimo));
+        System.out.println("Su identificador de cuenta es: " + cuentasCredito.get(rfc).get(cuentasCredito.get(rfc).size()-1).getIdentificadorCuenta() + "\n");
     }
 
     /**

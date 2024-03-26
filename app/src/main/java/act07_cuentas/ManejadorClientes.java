@@ -80,6 +80,7 @@ public class ManejadorClientes {
         } while (true);
 
         System.out.println("Persona agregada con éxito");
+        System.out.println("RFC: " + rfc + "\n");
     
         clientes.add(new Cliente(rfc, nombre, apellido, esPersonaFisica, email, fechaNacimiento));
     }

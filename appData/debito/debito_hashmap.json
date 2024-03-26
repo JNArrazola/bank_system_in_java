@@ -1,1 +1,25 @@
-{}
+{
+  "PAN00033010310": [
+    {
+      "identificadorCuenta": "PAN0003301031014",
+      "saldo": 2000.0,
+      "rfc": "PAN00033010310",
+      "historial": [],
+      "numBound": 100
+    },
+    {
+      "identificadorCuenta": "PAN0003301031092",
+      "saldo": 2000.0,
+      "rfc": "PAN00033010310",
+      "historial": [],
+      "numBound": 100
+    },
+    {
+      "identificadorCuenta": "PAN0003301031084",
+      "saldo": 3000.0,
+      "rfc": "PAN00033010310",
+      "historial": [],
+      "numBound": 100
+    }
+  ]
+}

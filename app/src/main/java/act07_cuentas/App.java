@@ -43,6 +43,8 @@ public class App {
         ManejadorClientes.save();
         ManejadorDebito.save();
         ManejadorCredito.save();
+        // hacer el corte 
+        // ManejadorCredito.saveCorte();
     }
 
     void gestionarClientes() throws ParseException{
