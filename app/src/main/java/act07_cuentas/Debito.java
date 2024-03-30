@@ -1,7 +1,8 @@
 package act07_cuentas;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Debito implements Serializable {
     private final String identificadorCuenta;

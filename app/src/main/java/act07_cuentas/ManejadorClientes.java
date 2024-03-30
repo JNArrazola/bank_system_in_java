@@ -1,7 +1,12 @@
 package act07_cuentas;
 
-import java.util.*;
-import java.text.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class ManejadorClientes {
     private static ArrayList<Cliente> clientes =  FileManagement.deserializarClientes();

@@ -1,7 +1,8 @@
 package act07_cuentas;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Movimiento implements Serializable {
     private String concepto;

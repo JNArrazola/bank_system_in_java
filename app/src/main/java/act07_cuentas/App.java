@@ -1,7 +1,7 @@
 package act07_cuentas;
 
 import java.text.ParseException;
-import java.util.*;
+import java.util.Scanner;
 
 public class App {
     private final Scanner in = new Scanner(System.in);
