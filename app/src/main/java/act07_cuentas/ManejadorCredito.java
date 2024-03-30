@@ -535,7 +535,17 @@ public class ManejadorCredito {
         return calendar.get(Calendar.MONTH);
     }
 
+    public static void cerrarCortes(){
+        for(ArrayList<Credito> cuentas : cuentasCredito.values())
+            for(Credito tarjeta : cuentas)
+                if(tarjeta.getCorteAPagar().getEstado().equals("NO PAGADO PERO VIGENTE")){
+                    tarjeta.getCorteAPagar().setEstado("NO SE PAGÓ");
+                    tarjeta.setCorteAPagar(null);
+                }
+    }
+
     public static void save(){
+        cerrarCortes();
         FileManagement.serializeDate(actualDate);
         FileManagement.serializarCuentasCredito(cuentasCredito);
     }
